@@ -11,6 +11,9 @@ Project de caisse pour un Snack "Snack Mounir"
 # Installation :
 
 Connexion d'une base de donnée mySQL avec une base de conseole Java grace a DriverManager
+Necessite un pilote
+Installation dans le Module Path
+Permet la connexion avec JDBC
 
 - ajout du fichier .jar <br>
   <a href="https://dev.mysql.com/downloads/connector/j/" target="_blank">Lien du fichier .jar</a> <br>
