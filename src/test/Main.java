@@ -6,44 +6,41 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
 	
 	public static void main(String[] args) {
-		System.out.println("hello");
+		ArrayList<Plat> mesPlats = new ArrayList<Plat>();
 		
 		Connection conn = null;
 		
 		
 		try {
+			//start setup connexion
             Class.forName("com.mysql.cj.jdbc.Driver");
-            
+           
             String dbName = "snack_mounir"; 
             String dbUserName = "root"; 
             String dbPassword = "root"; 
-            String connectionString = "jdbc:mysql://127.0.0.1:3306/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword + "&useUnicode=true&characterEncoding=UTF-8";
+            String connectionString = "jdbc:mysql://localhost:8889/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword ;
             conn = DriverManager.getConnection(connectionString);
 
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM articles";
+            String sql = "SELECT * FROM boissons";
             ResultSet res = stmt.executeQuery(sql);
             
             while(res.next()) {
-            		int id = res.getInt("id");
-            		String libelle = res.getString("libelle");
-            		int prix = res.getInt("prix");
-            		
-            		System.out.printf("%d\t%s\t\t%d\n", 
-            				id,
-            				libelle,
-            				prix);
-            				
+            	 Plat plat = new Plat(res.getInt("id"),res.getString("libelle") ,res.getInt("prix") );
+	        	   	mesPlats.add(plat);
             }
-            
-            
-            
+            for (Plat monPlat : mesPlats) {
+	        	   System.out.printf("%d\t%s\t% .2f\n",
+	        			   monPlat.getId(),
+	        			   monPlat.getLibelle(),
+	        			   monPlat.getPrix()
+	        			   );
+           }
             
             
         } catch (SQLException ex) {
