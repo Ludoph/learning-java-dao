@@ -11,6 +11,7 @@ public class Main {
 
 	
 	public static void main(String[] args) {
+		
 		ArrayList<Plat> mesPlats = new ArrayList<Plat>();
 		
 		Connection conn = null;
@@ -27,7 +28,7 @@ public class Main {
             conn = DriverManager.getConnection(connectionString);
 
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM boissons";
+            String sql = "SELECT * FROM articles";
             ResultSet res = stmt.executeQuery(sql);
             
             while(res.next()) {
