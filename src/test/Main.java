@@ -51,7 +51,14 @@ public class Main {
         */
 		
 		
+		
+		
 		System.out.println("main page");
+
+		
+		
+		Plat wrap = new Plat(9, "Wrap", 4);
+		System.out.println(wrap);
 	}
 
 	

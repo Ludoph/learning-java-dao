@@ -70,8 +70,16 @@ public class ArticleDAOImpl implements IArticleDAO {
 	
 		@Override
 		public void getPlat(int id) {
-			// TODO Auto-generated method stub
-			
+			try {
+				Statement stmtPlat = conn.createStatement();
+				String getPlat = "SELECT articles FROM articles WHERE 'id'= ?";
+				ResultSet res = stmtPlat.executeQuery(getPlat);	
+				System.out.println(res.getInt("id") + res.getString("libelle") +res.getInt("prix") );
+           
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}			
 		}
 	
 		@Override
