@@ -35,6 +35,7 @@ public class Main {
             	 Plat plat = new Plat(res.getInt("id"),res.getString("libelle") ,res.getInt("prix") );
 	        	   	mesPlats.add(plat);
             }
+            System.out.println(mesPlats);
             System.out.printf("ID\tLibéllé\t\tPrix\n\n");
             for (Plat monPlat : mesPlats) {
             		System.out.printf("%d\t%s\t\t% .2f\n",

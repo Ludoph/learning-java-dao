@@ -20,6 +20,10 @@ public class Plat {
 	public double getPrixPlat() {
 		return prixPlat;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Plat [idPlat= " + idPlat + ", libellePlat= " + libellePlat + ", prixPlat= " + prixPlat + "]" + "\n";
+	}
 	
 }
