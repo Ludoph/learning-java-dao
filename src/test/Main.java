@@ -1,17 +1,12 @@
 package test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+
 
 public class Main {
 
 	
 	public static void main(String[] args) {
-		
+		/*
 		ArrayList<Plat> mesPlats = new ArrayList<Plat>();
 		
 		Connection conn = null;
@@ -53,5 +48,11 @@ public class Main {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        */
+		
+		
+		System.out.println("main page");
 	}
+
+	
 }
