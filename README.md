@@ -12,6 +12,8 @@ Project de caisse pour un Snack "Snack Mounir"
 - Creation de ArticleDAOimpl en definissant les methode et creation de fonction
 - Creation de Gestionnaire Article et Service avec la fonction de gerer ou appliquer une remise
 - Ajout d'un CRUD
+- UML <br>
+  ![alt UML](https://github.com/Ludoph/learning-java-dao/blob/main/image/uml.png?raw=true)
 
 # Installation :
 
