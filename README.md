@@ -5,21 +5,24 @@ Project de caisse pour un Snack "Snack Mounir"
 # Description :
 
 - Creation de module de caisse,
-- Etablir la base de données pour les articles,
+- Etablir la base de donnees pour les articles,
 - Generer un ticket de caisse avec la selection d'article
+- Creation de DTO DAO et Logic metier
+- Creation de IArticleDAO avec les termes du contrat
+- Creation de ArticleDAOimpl en definissant les methode et creation de fonction
+- Creation de Gestionnaire Article et Service avec la fonction de gerer ou appliquer une remise
+- Ajout d'un CRUD
 
 # Installation :
 
-Connexion d'une base de donnée mySQL avec une base de conseole Java grace a DriverManager
-Necessite un pilote
-Installation dans le Module Path
-Permet la connexion avec JDBC
+Connexion d'une base de donnee mySQL avec une un fichier .jar console Java grace a DriverManager <br>
+Necessite d'un pilote <br>
+Installation dans le Module Path <br>
+Permet la connexion avec JDBC <br>
 
 - ajout du fichier .jar <br>
   <a href="https://dev.mysql.com/downloads/connector/j/" target="_blank">Lien du fichier .jar</a> <br>
   <a href="https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-connect-drivermanager.html" target="_blank">Documentation</a>
-
-- Creation de class Article
 
 # Utilisation :
 

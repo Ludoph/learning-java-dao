@@ -6,9 +6,8 @@ public class Main {
 		
 		Service monService = new Service(new ArticleDAOImpl()); 
 		ArticleDAOImpl impl = new ArticleDAOImpl();
-		//monService.remisePlat(impl.getAllPlat(), 1.20);
-		monService.remisePlat(impl.getPlat(1), 2);
+		monService.remisePlat(impl.getAllPlat(), 1.20);
 		
-		
+	
 	}
 }
