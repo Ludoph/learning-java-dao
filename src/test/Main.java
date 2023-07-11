@@ -53,12 +53,11 @@ public class Main {
 		
 		
 		
-		System.out.println("main page");
 
-		
-		
-		Plat wrap = new Plat(9, "Wrap", 4);
-		System.out.println(wrap);
+		ArticleDAOImpl imp1 = new ArticleDAOImpl();		
+		Plat wrap = new Plat(9, "tacos", 6);
+		System.out.println(imp1.getPlat(3));	
+		System.out.println(imp1.getAllPlat());
 	}
 
 	

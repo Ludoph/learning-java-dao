@@ -7,10 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArticleDAOImpl implements IArticleDAO {
-
-	ArrayList<Plat>mesPlats = new ArrayList<Plat>();
 
 	static Connection conn = null;
 	
@@ -39,7 +38,13 @@ public class ArticleDAOImpl implements IArticleDAO {
 		public void ajouterPlat(Plat monPlat) {
 			PreparedStatement stmtAddPlat;
 			try {
-				stmtAddPlat = conn.prepareStatement("INSERT INTO articles VALUES ()");
+				stmtAddPlat = conn.prepareStatement("INSERT INTO articles (libelle, prix) VALUES (?,?)");
+				stmtAddPlat.setString(1, monPlat.getLibellePlat());
+				stmtAddPlat.setDouble(2, monPlat.getPrixPlat());
+				int nbInserted =  stmtAddPlat.executeUpdate();
+				System.out.println(nbInserted);
+				
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -50,7 +55,11 @@ public class ArticleDAOImpl implements IArticleDAO {
 		public void supprimerPlat(int id) {
 			PreparedStatement stmtDeletePlat;
 			try {
-				stmtDeletePlat = conn.prepareStatement("DELETE FROM articles WHERE 'id'= ?");
+				stmtDeletePlat = conn.prepareStatement("DELETE FROM articles WHERE id = ?");
+				stmtDeletePlat.setInt(1, id);
+				int nbInserted =  stmtDeletePlat.executeUpdate();
+				System.out.println(nbInserted);
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -61,7 +70,13 @@ public class ArticleDAOImpl implements IArticleDAO {
 		public void modifierPlat(Plat monPlat) {
 			PreparedStatement stmtUpPlat;
 			try {
-				stmtUpPlat = conn.prepareStatement("UPDATE INTO articles VALUES ()");
+				stmtUpPlat = conn.prepareStatement("UPDATE articles SET libelle = ?, prix = ? WHERE id = ? ");
+				stmtUpPlat.setString(1, monPlat.getLibellePlat());
+				stmtUpPlat.setDouble(2, monPlat.getPrixPlat());
+				stmtUpPlat.setInt(3, monPlat.getIdPlat());
+				int nbInserted =  stmtUpPlat.executeUpdate();
+				System.out.println(nbInserted);
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -69,40 +84,44 @@ public class ArticleDAOImpl implements IArticleDAO {
 		}
 	
 		@Override
-		public void getPlat(int id) {
+		public Plat getPlat(int id) {
+			
+			PreparedStatement stmtPlat;
+			Plat newPlat = null;
 			try {
-				Statement stmtPlat = conn.createStatement();
-				String getPlat = "SELECT articles FROM articles WHERE 'id'= ?";
-				ResultSet res = stmtPlat.executeQuery(getPlat);	
-				System.out.println(res.getInt("id") + res.getString("libelle") +res.getInt("prix") );
+				stmtPlat = conn.prepareStatement("SELECT * FROM articles WHERE id= ?");
+				stmtPlat.setInt(1, id);
+				ResultSet res = stmtPlat.executeQuery();
+				if(res.next()) {
+					newPlat = new Plat(res.getInt("id"), res.getString("libelle"), res.getDouble("prix"));
+				}
            
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}			
+			}		
+			return newPlat;
+					
 		}
 	
 		@Override
-		public void getAllPlat() {
+		public  List <Plat> getAllPlat() {
+			List<Plat> mesPlats = new ArrayList<Plat>();
+			
+			PreparedStatement stmtPlat;
 			try {
-				Statement stmt = conn.createStatement();
-				String sql = "SELECT * FROM articles";
-				ResultSet res = stmt.executeQuery(sql);	
+				stmtPlat = conn.prepareStatement("SELECT * FROM articles");
+				
+				ResultSet res = stmtPlat.executeQuery();	
 				while(res.next()) {
-					Plat plat = new Plat(res.getInt("id"),res.getString("libelle") ,res.getInt("prix") );
-	        	   	mesPlats.add(plat);				
+	        	   	mesPlats.add(new Plat(res.getInt("id"),res.getString("libelle") ,res.getInt("prix") ));				
 	        	   	}
-				for (Plat monPlat : mesPlats) {
-            		System.out.printf("%d\t%s\t\t% .2f\n",
-	        			   monPlat.getIdPlat(),
-	        			   monPlat.getLibellePlat(),
-	        			   monPlat.getPrixPlat()
-		   );
-           }
+				
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			return mesPlats;
 			 
 		}
 

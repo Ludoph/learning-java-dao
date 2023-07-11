@@ -5,7 +5,7 @@ public class Plat {
 	private String libellePlat;
 	private double prixPlat;
 	
-	public Plat(int idPlat ,String libellePlat , int prixPlat) {
+	public Plat(int idPlat ,String libellePlat , double prixPlat) {
 		this.idPlat = idPlat;
 		this.libellePlat = libellePlat;
 		this.prixPlat = prixPlat;
