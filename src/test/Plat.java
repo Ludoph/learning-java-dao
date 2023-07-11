@@ -11,36 +11,29 @@ public class Plat {
 		this.prixPlat = prixPlat;
 	}
 	
-	
 	public int getIdPlat() {
 		return idPlat;
 	}
-
 
 	public void setIdPlat(int idPlat) {
 		this.idPlat = idPlat;
 	}
 
-
 	public String getLibellePlat() {
 		return libellePlat;
 	}
-
 
 	public void setLibellePlat(String libellePlat) {
 		this.libellePlat = libellePlat;
 	}
 
-
 	public double getPrixPlat() {
 		return prixPlat;
 	}
 
-
 	public void setPrixPlat(double prixPlat) {
 		this.prixPlat = prixPlat;
 	}
-
 
 	@Override
 	public String toString() {
