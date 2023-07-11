@@ -15,10 +15,6 @@ public class Plat {
 		return idPlat;
 	}
 
-	public void setIdPlat(int idPlat) {
-		this.idPlat = idPlat;
-	}
-
 	public String getLibellePlat() {
 		return libellePlat;
 	}
