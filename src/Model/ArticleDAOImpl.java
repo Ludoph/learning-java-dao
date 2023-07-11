@@ -1,4 +1,4 @@
-package test;
+package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +21,6 @@ public class ArticleDAOImpl implements IArticleDAO {
 			String dbPassword = "root"; 
 			String connectionString = "jdbc:mysql://localhost:8889/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword ;
 			conn = DriverManager.getConnection(connectionString);
-			
 			
 		} catch (SQLException ex) {
 			System.out.println("SQLException: " + ex.getMessage());

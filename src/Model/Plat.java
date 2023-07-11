@@ -1,4 +1,4 @@
-package test;
+package Model;
 
 public class Plat {
 	private int idPlat;
